@@ -1,0 +1,17 @@
+<div class="modal-header">
+    <div class="modal-title h4">{{config.title}}</div>
+</div>
+<div class="modal-body">
+    <span>{{config.message}}</span>
+</div>
+
+<div class="modal-footer">
+    <div>
+        <button type="button" class="btn btn-light btn-elevate mr-1" (click)="modal.close(false)">
+            {{config.btnNoTitle}}
+        </button>&nbsp;
+        <button type="button" class="btn btn-danger btn-elevate" (click)="modal.close(true)">
+            {{config.btnYesTitle}}
+        </button>
+    </div>
+</div>

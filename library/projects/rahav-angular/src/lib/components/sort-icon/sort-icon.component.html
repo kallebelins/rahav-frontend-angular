@@ -1,0 +1,12 @@
+<ng-container *ngIf="isActive">
+      <ng-container *ngIf="activeDirection === 'asc'">
+            <i class="bi-sort-up"></i>
+      </ng-container>
+      <ng-container *ngIf="activeDirection === 'desc'">
+            <i class="bi-sort-down"></i>
+      </ng-container>
+</ng-container>
+
+<ng-container *ngIf="!isActive">
+      <i class="bi-filter"></i>
+</ng-container>

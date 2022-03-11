@@ -1,0 +1,46 @@
+<!-- start: Paginator -->
+<div class="d-flex flex-wrap py-2 mr-3">
+    <ng-pagination
+            [collectionSize]="paginator.total"
+            [(page)]="paginator.page"
+            [maxSize]="4"
+            [rotate]="true"
+            [boundaryLinks]="true"
+            [pageSize]="paginator.pageSize"
+            (pageChange)="pageChange($event)"
+    ></ng-pagination>
+</div>
+<div class="d-flex align-items-center py-3">
+
+    <!-- begin: reloading -->
+    <div class="d-flex align-items-center" *ngIf="!isLoading">
+        <a title="Reload" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3" (click)="sizeChange()">
+            <i class="bi-arrow-repeat"></i>
+        </a>
+    </div>
+    <!-- end: reloading -->
+
+    <!-- begin: loading -->
+    <div class="d-flex align-items-center" *ngIf="isLoading">
+        <div class="mr-2 text-muted">Reloading...</div>
+        <div class="spinner spinner-primary mr-10"></div>
+    </div>
+    <!-- end: loading -->
+
+    <!-- begin: pageSize -->
+    <select
+            class="form-control form-control-sm font-weight-bold mr-4 border-0 bg-light false"
+            style="width: 75px"
+            [(ngModel)]="paginator.pageSize"
+            (change)="sizeChange()"
+    >
+        <option class="btn" *ngFor="let ps of pageSizes">
+            {{ ps }}
+        </option>
+    </select>
+    <span class="react-bootstrap-table-pagin ation-total">&nbsp;
+        Display {{ paginator.page }} -&nbsp;{{ paginator.pageSize }} from&nbsp;{{ paginator.total }}
+    </span>
+    <!-- end: pageSize -->
+</div>
+<!-- end: Paginator -->

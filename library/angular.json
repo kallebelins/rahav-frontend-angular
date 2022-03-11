@@ -1,0 +1,40 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "rahav-angular": {
+      "projectType": "library",
+      "root": "projects/rahav-angular",
+      "sourceRoot": "projects/rahav-angular/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ngx-shared-lib/tsconfig.lib.json",
+            "project": "projects/rahav-angular/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/rahav-angular/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/rahav-angular/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/rahav-angular/src/test.ts",
+            "tsConfig": "projects/rahav-angular/tsconfig.spec.json",
+            "karmaConfig": "projects/rahav-angular/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "rahav-angular"
+}
